@@ -1,0 +1,7 @@
+party_time: !include scripts/party_time.yaml
+party_over: !include scripts/party_over.yaml
+party_lights_1: !include scripts/party_lights_1.yaml
+party_lights_2: !include scripts/party_lights_2.yaml
+bedtime_marlon: !include scripts/bedtime_marlon.yaml
+low_battery: !include scripts/low_battery.yaml
+refresh_devices: !include scripts/refresh_devices.yaml

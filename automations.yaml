@@ -1,0 +1,35 @@
+- id: '1529939613039'
+  alias: Sleeping
+  trigger:
+  - entity_id: input_select.marlon_status
+    platform: state
+    to: schläft
+  condition:
+  - condition: state
+    entity_id: input_select.company
+    state: deaktiviert
+  action:
+  - service: script.bedtime_marlon
+- id: '1529940039473'
+  alias: Niedrige Batterie RGB Licht
+  trigger:
+  - below: '5'
+    entity_id: sensor.petra_s7_battery
+    platform: numeric_state
+  - below: '30'
+    entity_id: sensor.marlon_note3_battery
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: device_tracker.marlon_s2
+    state: home
+  action:
+  - service: script.low_battery
+- id: '1529940214990'
+  alias: Owntracks refresh
+  trigger:
+  - at: 0:15:0
+    platform: time
+  condition: []
+  action:
+  - service: script.refresh_devices

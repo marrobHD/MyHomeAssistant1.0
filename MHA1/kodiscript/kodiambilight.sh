@@ -1,0 +1,1 @@
+curl -s --data-binary '{"jsonrpc":"2.0","id":"1","method":"Player.Open","params":{"item":{"file":"plugin://plugin.video.youtube/?action=play_video&videoid=8grc78ezT5E"}}}' -H 'content-type: application/json;' http://192.168.178.34:8080/jsonrpc

@@ -1,0 +1,144 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Berlin
+  # Customization file
+  customize: !include customize.yaml
+  customize_glob: !include customize_glob.yaml
+
+####MQTT
+mqtt:
+  broker: 192.168.178.20
+  port: 1883
+  #client_id: home-assistant-1
+  username: !secret usernamemqtt
+  password: !secret passwordmqtt
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+#sensor:
+#  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+  
+# Cloud
+cloud:
+
+#group: !include groups.yaml
+#automation: !include automations.yaml
+
+####DEVICES
+script: !include scripts.yaml
+shell_command: !include shell_commands.yaml
+input_select: !include misc/input_select.yaml
+#input_number: !include misc/input_number.yaml
+#input_boolean: !include misc/input_boolean.yaml
+automation: !include automations.yaml
+sensor: !include sensors.yaml
+light: !include_dir_list lights/
+
+
+device_tracker:
+  - platform: owntracks
+  - platform: bluetooth_tracker
+  - platform: nmap_tracker
+    hosts: 192.168.178.1-70
+
+#device_tracker:
+#  platform: nmap_tracker
+#  hosts: 192.168.178.54, 192.168.178.27
+#  home_interval: 60
+group:
+####VIEWS
+  default_view:
+    view: yes
+    icon: mdi:home
+    entities:
+      - group.schlafzimmer
+      - group.wohnzimmer
+      - device_tracker.marlon_s2
+      - device_tracker.homeassistant1_le2
+  schlafzimmer_view:
+     view: yes
+     name: Schlafzimmer
+     entities:
+      - input_select.marlon_status
+      - input_select.company
+      - group.schlafzimmer
+      - media_player.mein_zimmer
+      - script.party_time
+      - script.party_over
+  wohnzimmer_view:
+     view: yes
+     name: Wohnzimmer
+     entities:
+      - group.wohnzimmer
+  familie:
+     view: yes
+     name: Familie
+     entities:
+      - input_select.marlon_status
+      - device_tracker.marlon_s2
+      - device_tracker.homeassistant1_le2
+####GROUPS
+  schlafzimmer:
+     name: Schlafzimmer
+     entities:
+      - light.mein_zimmer
+      - input_boolean.schlafzimmer_lockout
+  wohnzimmer:
+     name: Wohnzimmer
+     entities:
+      - input_boolean.wohnzimmer_lockout
+      - light.mein_zimmer
+  umgebung:
+    - sun.sun
+    - sensor.yr_symbol

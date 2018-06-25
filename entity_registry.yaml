@@ -1,0 +1,20 @@
+media_player.mein_zimmer:
+  config_entry_id:
+  name: Mein Zimmer
+  platform: cast
+  unique_id: 5b3d77e6-93df-818d-b2e2-af0ff673c2e0
+light.stern_2:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:9b:8f:b1-0b
+light.bullauge_rechts:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:f1:b7:9c-0b
+light.bullauge_links:
+  config_entry_id:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:02:f1:c0:54-0b

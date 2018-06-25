@@ -1,0 +1,11 @@
+alias: "Marlon Schlaf Zeit"
+trigger:
+  platform: state
+  entity_id: input_select.marlon_status
+  state: "schläft"
+condition:
+  condition: state
+  entity_id: input_select.company
+  state: "disabled"
+action:
+  service: script.bedtime_marlon

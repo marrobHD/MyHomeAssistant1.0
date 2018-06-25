@@ -1,0 +1,30 @@
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: group.all_lights
+        transition: 15
+#    - service: switch.turn_off
+#      data:
+#        entity_id: switch.homeseer_hsws100_wall_switch_switch_7_0
+#    - service: fan.turn_on
+#      data:
+#        entity_id:
+#         - fan.ge_12730_fan_control_switch_level_54_0
+#        speed: "medium"
+#    - service: input_select.select_option
+#      data:
+#        entity_id: input_select.---_status
+#        option: "Sleeping"
+#    - service: automation.trigger
+#      data:
+#        entity_id:
+#         - automation.tv_power
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.marlon_status
+        option: "schläft"
+    - service: tts.google_say
+      entity_id: media_player.mein_zimmer
+      data:
+        message: 'Herunterfahren. Beep Boop! Gute Nacht. Schlaf gut.'
+        language: 'de'

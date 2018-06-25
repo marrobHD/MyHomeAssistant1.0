@@ -1,0 +1,12 @@
+sequence:
+- event: LOGBOOK_ENTRY
+  event_data:
+    name: EVENT
+    message: "Low battery Event"
+- service: notify.notify
+  data:
+    message: "{% if states('sensor.petra_s7_battery') < '6'%}Low battery detected! Petra's battery is at {{states('sensor.petra_s7_battery')}}%{% else %} {% endif %} {% if states('sensor.marlon_note3_battery') < '6'%}Low battery detected! Marlons's battery is at {{states('sensor.marlon_note3_battery')}}%{% else %} {% endif %}"
+- service: light.turn_on
+  data:
+    entity_id: light.mein_zimmer
+    rgb_color: [255,0,0]
