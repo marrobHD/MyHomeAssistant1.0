@@ -30,7 +30,7 @@ config:
 
 http:
   # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
+  #api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
 
@@ -89,8 +89,8 @@ light: !include_dir_list lights/
 device_tracker:
   - platform: owntracks
   - platform: bluetooth_tracker
-  - platform: nmap_tracker
-    hosts: 192.168.178.1-70
+#  - platform: nmap_tracker
+#    hosts: 192.168.178.1-70
 
 #device_tracker:
 #  platform: nmap_tracker
@@ -104,8 +104,9 @@ group:
     entities:
       - group.schlafzimmer
       - group.wohnzimmer
-      - device_tracker.marlon_s2
-      - device_tracker.homeassistant1_le2
+      - device_tracker.marlon_marlons2
+      - device_tracker.petra_petras7
+      - device_tracker.stefan_stefan_le_max_2
   schlafzimmer_view:
      view: yes
      name: Schlafzimmer
@@ -116,6 +117,7 @@ group:
       - media_player.mein_zimmer
       - script.party_time
       - script.party_over
+      - script.refresh_devices
   wohnzimmer_view:
      view: yes
      name: Wohnzimmer
@@ -126,8 +128,9 @@ group:
      name: Familie
      entities:
       - input_select.marlon_status
-      - device_tracker.marlon_s2
-      - device_tracker.homeassistant1_le2
+      - device_tracker.marlon_marlons2
+      - device_tracker.petra_petras7
+      - device_tracker.stefan_stefan_le_max_2
 ####GROUPS
   schlafzimmer:
      name: Schlafzimmer

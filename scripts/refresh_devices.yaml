@@ -5,5 +5,9 @@ sequence:
     payload_template: '{"_type":"cmd","action":"reportLocation"}'
 - service: mqtt.publish
   data:
-    topic: "owntracks/Marlon/marlonnote3/cmd"
+    topic: "owntracks/Marlon/Marlons2/cmd"
+    payload_template: '{"_type":"cmd","action":"reportLocation"}'
+- service: mqtt.publish
+  data:
+    topic: "owntracks/Stefan/stefan_le_max_2/cmd"
     payload_template: '{"_type":"cmd","action":"reportLocation"}'
