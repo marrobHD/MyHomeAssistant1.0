@@ -18,3 +18,13 @@ light.bullauge_links:
   name:
   platform: hue
   unique_id: 00:17:88:01:02:f1:c0:54-0b
+media_player.googlehome3452:
+  config_entry_id: 4b63f414d75b438f851310a781b72c8b
+  name:
+  platform: cast
+  unique_id: 1c304077-8ce7-c9b9-ffd5-aafb964529b8
+media_player.googlehome5056:
+  config_entry_id: 4b63f414d75b438f851310a781b72c8b
+  name: Mein Zimmer
+  platform: cast
+  unique_id: 8e00ca6f-5ba8-4bdf-c678-d52bcf583d11

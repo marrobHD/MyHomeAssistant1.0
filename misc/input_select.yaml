@@ -4,6 +4,7 @@ marlon_status:
    - standby
    - schläft
    - beschäftigt
+   - aufstehen
   initial: standby
 company:
   name: "Arbeiten"
@@ -11,3 +12,31 @@ company:
    - "aktiviert"
    - "deaktiviert"
   initial: "deaktiviert"
+radio_station:
+  name: "Radio auswählen:"
+  options:
+   - "I Love Radio"
+   - "I ❤ Dance"
+   - "I ❤ Top 100 Charts"
+   - "I ❤ The Battle"
+   - "I ❤ Radio & Chill"
+   - "I ❤ Mashup"
+   - "Wakeup"
+   - "Stop"
+wakeup_play:
+  name: "Quelle auswählen:"
+  options:
+   - "Feed Me - Alarm Clock"
+   - "Off"
+wakeup_speaker:
+  name: "Lautsprecher auswählen:"
+  options:
+    - Schlafzimmer
+  icon: mdi:speaker-wireless
+chromecast_radio:
+  name: "Lautsprecher auswählen:"
+  options:
+    - Schlafzimmer 
+    - Überall
+  initial: "Überall"
+  icon: mdi:speaker-wireless

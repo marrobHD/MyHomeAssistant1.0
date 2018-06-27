@@ -1,0 +1,8 @@
+alarm_clock_hour:
+  min: 0
+  max: 24
+  step: 1
+alarm_clock_minute:
+  min: 0
+  max: 60
+  step: 1

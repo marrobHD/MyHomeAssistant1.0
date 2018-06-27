@@ -79,16 +79,14 @@ cloud:
 script: !include scripts.yaml
 shell_command: !include shell_commands.yaml
 input_select: !include misc/input_select.yaml
-#input_number: !include misc/input_number.yaml
-#input_boolean: !include misc/input_boolean.yaml
+input_number: !include misc/input_number.yaml
+input_boolean: !include misc/input_boolean.yaml
 automation: !include automations.yaml
 sensor: !include sensors.yaml
 light: !include_dir_list lights/
 
-
 device_tracker:
   - platform: owntracks
-  - platform: bluetooth_tracker
 #  - platform: nmap_tracker
 #    hosts: 192.168.178.1-70
 
@@ -114,10 +112,12 @@ group:
       - input_select.marlon_status
       - input_select.company
       - group.schlafzimmer
-      - media_player.mein_zimmer
+      - media_player.googlehome5056
       - script.party_time
       - script.party_over
       - script.refresh_devices
+      - group.alarm_clock
+      - group.radio
   wohnzimmer_view:
      view: yes
      name: Wohnzimmer
@@ -145,3 +145,20 @@ group:
   umgebung:
     - sun.sun
     - sensor.yr_symbol
+# Alarm clock
+  alarm_clock:
+      name: 'Alarm Clock'
+      entities:
+        - sensor.alarm_clock_time
+        - input_number.alarm_clock_hour
+        - input_number.alarm_clock_minute
+        - input_select.wakeup_play
+        - input_select.wakeup_speaker
+        - script.wakeup_source
+        - input_boolean.alarm_clock_status
+  radio:
+      name: Radio
+      entities:
+        - input_select.radio_station
+        - input_select.chromecast_radio
+        - script.radio

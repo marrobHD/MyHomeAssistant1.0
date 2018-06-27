@@ -1,7 +1,387 @@
-party_time: !include scripts/party_time.yaml
-party_over: !include scripts/party_over.yaml
-party_lights_1: !include scripts/party_lights_1.yaml
-party_lights_2: !include scripts/party_lights_2.yaml
-bedtime_marlon: !include scripts/bedtime_marlon.yaml
-low_battery: !include scripts/low_battery.yaml
-refresh_devices: !include scripts/refresh_devices.yaml
+party_time:
+  sequence:
+  - service: script.all_off
+  - service: shell_command.party_video
+  - service: script.turn_on
+    data:
+      entity_id: script.party_lights_1
+party_over:
+  sequence:
+  - service: script.turn_off
+    data:
+      entity_id: script.party_lights_1
+  - service: script.turn_off
+    data:
+      entity_id: script.party_lights_2
+  - service: media_player.turn_off
+    data:
+      entity_id: media_player.googlehome5056
+party_lights_1:
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_links
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 255
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_rechts
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 255
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.br_lifx
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 255
+      brightness: 255
+  - delay:
+      seconds: 1
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_links
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_rechts
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.br_lifx
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      brightness: 255
+  - delay:
+      seconds: 1
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_links
+      transition: 1
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_rechts
+      transition: 1
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.br_lifx
+      transition: 1
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      brightness: 255
+  - delay:
+      seconds: 1
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_links
+      transition: 1
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_rechts
+      transition: 1
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.br_lifx
+      transition: 1
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      brightness: 255
+  - delay:
+      seconds: 1
+  - service: script.party_lights_2
+party_lights_2:
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_links
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 255
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_rechts
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 255
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.br_lifx
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 255
+      brightness: 255
+  - delay:
+      seconds: 1
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_links
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_rechts
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.br_lifx
+      transition: 1
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      brightness: 255
+  - delay:
+      seconds: 1
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_links
+      transition: 1
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_rechts
+      transition: 1
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.br_lifx
+      transition: 1
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      brightness: 255
+  - delay:
+      seconds: 1
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_links
+      transition: 1
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.bullauge_rechts
+      transition: 1
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      brightness: 255
+  - service: light.turn_on
+    data:
+      entity_id: light.br_lifx
+      transition: 1
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      brightness: 255
+  - delay:
+      seconds: 1
+  - service: script.party_lights_1
+bedtime_marlon:
+  sequence:
+  - service: light.turn_off
+    data:
+      entity_id: group.all_lights
+      transition: 15
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.marlon_status
+      option: schläft
+  - service: tts.google_say
+    entity_id: media_player.googlehome5056
+    data:
+      message: Herunterfahren. Beep Boop! Gute Nacht. Schlaf gut.
+      language: de
+low_battery:
+  sequence:
+  - event: LOGBOOK_ENTRY
+    event_data:
+      name: EVENT
+      message: Low battery Event
+  - service: notify.notify
+    data:
+      message: '{% if states(''sensor.marlon_s2_battery'') < ''30''%}Low battery detected!
+        Marlon''s battery is at {{states(''sensor.marlon_s2_battery'')}}%{% else %}
+        {% endif %} {% if states(''sensor.marlon_note3_battery'') < ''6''%}Low battery
+        detected! Marlons''s battery is at {{states(''sensor.marlon_note3_battery'')}}%{%
+        else %} {% endif %}'
+  - service: light.turn_on
+    data:
+      entity_id: light.mein_zimmer
+      rgb_color:
+      - 255
+      - 0
+      - 0
+refresh_devices:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: owntracks/Petra/petras7/cmd
+      payload_template: '{"_type":"cmd","action":"reportLocation"}'
+  - service: mqtt.publish
+    data:
+      topic: owntracks/Marlon/Marlons2/cmd
+      payload_template: '{"_type":"cmd","action":"reportLocation"}'
+  - service: mqtt.publish
+    data:
+      topic: owntracks/Stefan/stefan_le_max_2/cmd
+      payload_template: '{"_type":"cmd","action":"reportLocation"}'
+aufstehen_marlon:
+  sequence:
+  - data:
+      entity_id: group.all_lights
+      transition: 10
+    service: light.turn_on
+  - data:
+      entity_id: input_select.marlon_status
+      option: standby
+    service: input_select.select_option
+  - data:
+      language: de
+      message: Starten. Boop Beep! AufstehenAufstehen! Es ist Morgends!
+    entity_id: media_player.googlehome5056
+    service: tts.google_say
+  - service: script.wakeup_source
+wake_up:
+  sequence:
+  - service: script.aufstehen_marlon
+  - service: light.turn_on
+    data:
+      entity_id: light.mein_zimmer
+      brightness: 255
+      transition: 10
+radio:
+  alias: Play Radio on Chromecast Audio
+  sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.googlehome5056
+        volume_level: '0.35'
+    -  service: media_player.volume_set
+       data:
+         entity_id: media_player.ca_bathroom
+         volume_level: '0.20'
+    -  service: media_player.volume_set
+       data:
+         entity_id: media_player.ca_livingroom
+         volume_level: '0.30'
+    -  service: media_player.play_media
+       data_template:
+         entity_id: >
+          {% if is_state("input_select.chromecast_radio", "Schlafzimmer") %} media_player.googlehome5056
+          {% elif is_state("input_select.chromecast_radio", "Überall") %} media_player.home_group
+          {% endif %}
+         media_content_id: >
+          {% if is_state("input_select.radio_station", "I Love Radio") %} http://stream01.iloveradio.de/iloveradio1.mp3
+          {% elif is_state("input_select.radio_station", "I ❤ Dance") %} http://stream01.iloveradio.de/iloveradio2.mp3
+          {% elif is_state("input_select.radio_station", "I ❤ Top 100 Charts") %} http://stream01.iloveradio.de/iloveradio9.mp3
+          {% elif is_state("input_select.radio_station", "I ❤ The Battle") %} http://stream01.iloveradio.de/iloveradio3.mp3
+          {% elif is_state("input_select.radio_station", "I ❤ Radio & Chill") %} http://stream01.iloveradio.de/iloveradio10.mp3
+          {% elif is_state("input_select.radio_station", "I ❤ Mashup") %} http://stream01.iloveradio.de/iloveradio5.mp3
+          {% elif is_state("input_select.radio_station", "Wakeup") %} http://hassio.local:8123/local/Wake_Up/FeedMe-AlarmClock.mp3
+          {% elif is_state("input_select.radio_station", "Stop") %} http://stop.hjdelkor
+          {% endif %}
+         media_content_type: 'audio/mp4'
+wakeup_source:
+  alias: Play a Source on Google Audio
+  sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.googlehome5056
+        volume_level: '0.35'
+    -  service: media_player.volume_set
+       data:
+         entity_id: media_player.ca_bathroom
+         volume_level: '0.20'
+    -  service: media_player.volume_set
+       data:
+         entity_id: media_player.ca_livingroom
+         volume_level: '0.30'
+    -  service: media_player.play_media
+       data_template:
+         entity_id: >
+          {% if is_state("input_select.wakeup_speaker", "Schlafzimmer") %} media_player.googlehome5056
+          {% elif is_state("input_select.wakeup_play", "Off") %} media_player.notexistplayer
+          {% endif %}
+         media_content_id: >
+          {% if is_state("input_select.wakeup_play", "Feed Me - Alarm Clock") %} http://192.168.178.20:8123/local/Wake_Up/FeedMe-AlarmClock.mp3
+          {% elif is_state("input_select.wakeup_play", "Off") %} http:stopaudiowithnoexistwebsite.comz
+          {% endif %}
+         media_content_type: 'audio/mp4'

@@ -10,18 +10,27 @@
     state: deaktiviert
   action:
   - service: script.bedtime_marlon
+- id: '1529939613346'
+  alias: Aufstehen
+  trigger:
+  - entity_id: input_select.marlon_status
+    platform: state
+    to: aufstehen
+  condition:
+  - condition: state
+    entity_id: input_select.company
+    state: aktiviert
+  action:
+  - service: script.aufstehen_marlon
 - id: '1529940039473'
   alias: Niedrige Batterie RGB Licht
   trigger:
-  - below: '5'
-    entity_id: sensor.petra_s7_battery
-    platform: numeric_state
   - below: '30'
-    entity_id: sensor.marlon_note3_battery
+    entity_id: sensor.marlon_s2_battery
     platform: numeric_state
   condition:
   - condition: state
-    entity_id: device_tracker.marlon_s2
+    entity_id: device_tracker.marlon_marlons2
     state: home
   action:
   - service: script.low_battery
@@ -33,3 +42,16 @@
   condition: []
   action:
   - service: script.refresh_devices
+- id: '1529940214996'
+  alias: Hue light on gradually with alarm
+  hide_entity: false
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state
+      }}'
+  condition:
+    condition: state
+    entity_id: input_boolean.alarm_clock_status
+    state: 'on'
+  action:
+    service: script.wake_up
