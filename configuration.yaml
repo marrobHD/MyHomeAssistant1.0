@@ -113,6 +113,7 @@ group:
       - input_select.company
       - group.schlafzimmer
       - media_player.googlehome5056
+      - script.aufstehen_marlon_control_from_any_person
       - script.party_time
       - script.party_over
       - script.refresh_devices

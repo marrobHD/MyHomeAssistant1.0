@@ -16,12 +16,9 @@
   - entity_id: input_select.marlon_status
     platform: state
     to: aufstehen
-  condition:
-  - condition: state
-    entity_id: input_select.company
-    state: aktiviert
+  condition: []
   action:
-  - service: script.aufstehen_marlon
+  - service: script.aufstehen_marlon_control_from_any_person
 - id: '1529940039473'
   alias: Niedrige Batterie RGB Licht
   trigger:

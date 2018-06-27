@@ -308,17 +308,42 @@ aufstehen_marlon:
   - data:
       entity_id: group.all_lights
       transition: 10
+      effect: colorloop
     service: light.turn_on
   - data:
       entity_id: input_select.marlon_status
       option: standby
     service: input_select.select_option
   - data:
+      volume_level: '0.50'
+    entity_id: media_player.googlehome5056
+    service: media_player.volume_set
+  - data:
       language: de
-      message: Starten. Boop Beep! AufstehenAufstehen! Es ist Morgends!
+      message: Starten. Boop Beep! AufstehenAufstehen! Es ist ein neuer Tag!
     entity_id: media_player.googlehome5056
     service: tts.google_say
   - service: script.wakeup_source
+aufstehen_marlon_control_from_any_person:
+  sequence:
+  - data:
+      entity_id: group.all_lights
+      transition: 10
+      effect: colorloop
+    service: light.turn_on
+  - data:
+      entity_id: input_select.marlon_status
+      option: standby
+    service: input_select.select_option
+  - data:
+      volume_level: '0.50'
+    entity_id: media_player.googlehome5056
+    service: media_player.volume_set
+  - data:
+      language: de
+      message: Starten. Boop Beep! AufstehenAufstehen! Es ist ein neuer Tag!
+    entity_id: media_player.googlehome5056
+    service: tts.google_say
 wake_up:
   sequence:
   - service: script.aufstehen_marlon
@@ -365,7 +390,7 @@ wakeup_source:
     - service: media_player.volume_set
       data:
         entity_id: media_player.googlehome5056
-        volume_level: '0.35'
+        volume_level: '0.50'
     -  service: media_player.volume_set
        data:
          entity_id: media_player.ca_bathroom
