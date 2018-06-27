@@ -3,22 +3,9 @@ These are the Home Assistant configuration files used in the mar_robHD Home Auto
 # Installation Process
 I'm currently running [Home Assistant](https://home-assistant.io) version __0.72.1__. My preferred installation method is [Hass.io](https://github.com/home-assistant/hassio-build/releases/).
 
-After downloading the disk image and writing it to an SD card with [Etcher](https://etcher.io/), I go to my Hassio.io Raspberry Pi website: hassio_local:8123 and wait until the update process is finished. Then you go to [Hass.io](https://github.com/home-assistant/hassio-build/releases/)and install [Samba share](https://www.home-assistant.io/addons/samba/), [SSH server](https://www.home-assistant.io/addons/ssh/)and [Mosquitto broker](https://www.home-assistant.io/addons/mosquitto/).
 
-```
-sudo hassbian-config install mosquitto
-sudo hassbian-config install libcec
-sudo hassbian-config install openzwave
-sudo hassbian-config install samba
-```
-I also use [HASSCTL](https://github.com/dale3h/hassctl) which allows for some of thsee super simple commandline shortcuts for starting, stoping, upgrading, and debugging HA. 
+After downloading the disk image and writing it to an SD card with [Etcher](https://etcher.io/), I go to my [Hassio.io Raspberry Pi website](hassio_local:8123), and wait until the update process is finished. Then you go to [Hass.io](https://github.com/home-assistant/hassio-build/releases/) and install [Samba share](https://www.home-assistant.io/addons/samba/), [SSH server](https://www.home-assistant.io/addons/ssh/)and [Mosquitto broker](https://www.home-assistant.io/addons/mosquitto/).
 
-```
-hassctl update-hass
-hassctl start
-hassctl stop
-hassctl error
-```
 
 # Hardware Running HA
 * __[Raspberry Pi 3](http://geni.us/raspberrypi3)__
