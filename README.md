@@ -8,7 +8,7 @@ After downloading the disk image and writing it to an SD card with [Etcher](http
 
 
 # Hardware Running HA
-* __[Raspberry Pi 3](http://geni.us/raspberrypi3)__
+* __[Raspberry Pi 3](https://www.amazon.de/Raspberry-Modell-ARM-Cortex-A53-K%C3%BChlk%C3%B6rper-Sertronics/dp/B07BFM1CYC/ref=sr_1_1_sspa?s=computers&ie=UTF8&qid=1530125400&sr=1-1-spons&keywords=raspberry+pi+3+b%2B&psc=1)__
 * __[Case](http://geni.us/2rQEgy5)__
 * __[CanaKit 2.5A 5V Power Supply](http://geni.us/2ABPd1D)__
 * __[SanDisk 64GB SD](https://www.amazon.de/SanDisk-Ultra-microSDXC-Speicherkarte-Adapter/dp/B073SB2L3C/ref=sr_1_fkmr0_1?s=computers&ie=UTF8&qid=1530124939&sr=1-1-fkmr0&keywords=sandisk+64gib)__
@@ -17,4 +17,4 @@ After downloading the disk image and writing it to an SD card with [Etcher](http
 * __[Google Home Mini](https://store.google.com/product/google_home_mini)__ - [video]()
 
 ## DIY Projects
-* __[RGB LED Strip Light]()__ - [demo](), [tutorial]()
+* __[RGB LED Strip Light](https://github.com/marrobHD/MyHomeAssistant1.0)__ - [demo](https://github.com/marrobHD/MyHomeAssistant1.0), [tutorial](https://github.com/marrobHD/MyHomeAssistant1.0)
